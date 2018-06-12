@@ -1,0 +1,48 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<header class="header" >
+			{% block header %}
+				<h1 class="logo" role="banner">
+					<a class="logo-link" href="{{site.url}}" rel="home">
+						<img src="{{ site.theme.link }}/static/images/logo.png" alt="Adventure! Children's Museum"/>
+					</a>
+				</h1>
+				<nav id="nav-main" class="nav-main" role="navigation">
+					{% include "menu.twig" with {'menu': menu.get_items} %}
+				</nav>
+				<div class="info">
+					490 Valley River Center | Eugene, OR 97401<br/>
+					(541) 853-9629
+				</div>
+			{% endblock %}
+		</header>
+
+		<section id="content" role="main" class="content-wrapper">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

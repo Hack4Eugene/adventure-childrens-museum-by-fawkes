@@ -1,0 +1,17 @@
+{
+  "name": "acm",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:styles": "sass styles/index.scss static/styles.css",
+    "build": "npm run build:styles",
+    "watch:styles": "nodemon --exec 'npm run build:styles' -e scss --watch styles",
+    "watch": "npm run watch:styles"
+  },
+  "author": "James Meyers",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.5",
+    "sass": "^1.5.1"
+  }
+}
