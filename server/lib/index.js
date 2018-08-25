@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const nanoid = require('nanoid');
-const port = 8080;
+const port = 8090;
 
 app.use(require('cors')());
 app.use(express.static('public'));

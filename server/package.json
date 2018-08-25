@@ -15,6 +15,7 @@
     "express": "^4.16.3",
     "lokijs": "^1.5.3",
     "nanoid": "^1.0.2",
+    "nrbp": "git+https://github.com/Emberex/node-react-base-project.git",
     "socket.io": "^2.1.0"
   }
 }

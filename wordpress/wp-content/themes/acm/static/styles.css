@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 html, body {
@@ -18,6 +19,42 @@ body {
   background-position: top;
   background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+body #content {
+  flex: 1 0 auto;
+  width: 944px;
+  padding: 0 40px 0 40px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.foreground {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background-image: url("/wp-content/themes/acm/static/images/grass.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 120px;
+  min-height: 100vh;
+}
+
+.background {
+  flex: 1;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+p {
+  font-size: 1.6rem;
 }
 
 .header {
@@ -40,19 +77,20 @@ body {
   padding: 0;
 }
 .header nav a {
+  display: block;
   color: #fcab42;
   text-decoration: none;
-  transition: border-color 0.2s;
-  border-bottom: 3px solid rgba(255, 255, 255, 0);
+  transition: transform 0.1s, color 0.1s;
 }
 .header nav a:hover {
-  border-color: #fcab42;
+  transform: scale(1.1);
+  color: #ffab3f;
 }
 .header nav li:nth-child(2n) a {
   color: #ee78aa;
 }
 .header nav li:nth-child(2n) a:hover {
-  border-color: #ee78aa;
+  color: #f670a9;
 }
 .header nav {
   position: absolute;
@@ -62,6 +100,7 @@ body {
   width: 100%;
   max-width: 700px;
   font-size: 2rem;
+  z-index: 2;
 }
 .header .info {
   color: white;
@@ -70,6 +109,11 @@ body {
   line-height: 1.5rem;
   margin-top: 10px;
   opacity: 0.9;
+  z-index: 1;
+}
+
+#footer {
+  padding-top: 120px;
 }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
