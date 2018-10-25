@@ -1,0 +1,36 @@
+
+.staff-member {
+  display: block;
+  overflow: auto;
+  font-size: 18px;
+
+  & + & {
+    margin-top: 50px;
+  }
+
+  &__headshot {
+    display: inline-flex;
+    flex-direction: column;
+    float: left;
+    padding: 0 10px 10px 0;
+  }
+
+  &__headshot-image {
+    width: 200px;
+    height: 186px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__headshot-label { 
+    text-align: center;
+    font-size: 80%;
+    margin-top: 5px;
+  }
+
+  &__about {
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<div class="article-body">
+
+					{{post.content}}
+
+          <h1>BOARD MEMBERS</h1>
+          {% for member in staff %}
+            <div class="staff-member">
+              <div class="staff-member__headshot">
+                <div class="staff-member__headshot-image" style="background-image: url('{{ member.get_field('headshot') }}')"></div>
+                <div class="staff-member__headshot-label">{{ member.post_title }}</div>
+              </div>
+              <div class="staff-member__about">
+                {{ member.get_field('about') }}
+              </div>
+            </div>
+          {% endfor %}
+
+          <h1>ADVISORY COMMITTEE</h1>
+          <p>
+            Our advisory committee is populated by community members who actively assist with fundraising and planning for the museum. Time commitments vary from person to person, but however much or however little time you are able to dedicate, we're happy to have you! If you have interest in joining our Board of Directors or our Advisory Committee, please drop us a line! We know your skills will fit right in.
+            YOUTH ADVISORY BOARD
+            Our youth advisory board is intended to give children and teens a voice in how the museum grows and changes over the years. They will be invited to give feedback on current exhibits, offer ideas for new exhibits, and even volunteer in the museum to help create exhibits and materials for our visitors! Please visit our Events page for info about our next Youth Advisory Board meeting!
+          </p>
+          <h1>YOUTH ADVISORY BOARD</h1>
+          <p>
+            Our youth advisory board is intended to give children and teens a voice in how the museum grows and changes over the years. They will be invited to give feedback on current exhibits, offer ideas for new exhibits, and even volunteer in the museum to help create exhibits and materials for our visitors! Please visit our Events page for info about our next Youth Advisory Board meeting!
+          </p>
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

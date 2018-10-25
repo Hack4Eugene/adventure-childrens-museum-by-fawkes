@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<section class="article-content">
+				<div class="article-body">
+					{{post.content}}
+					<h1 class="events-page__events-header">Upcoming Events</h1>
+					<ul class="event--list">
+						{% for event in current_events %}
+							<li class="event">
+								<h1 class="event__title">{{ event.title }}</h1>
+								<h2>{{ event.get_field('timeframe') }}</h2>
+								<p>{{ event.get_field('description') }}</p>
+							</li>
+						{% endfor %}
+					</ul>
+					<h1 class="events-page__events-header">Past Events</h1>
+					<ul class="event--list">
+						{% for event in past_events %}
+							<li class="event">
+								<h1 class="event__title">{{ event.title }}</h1>
+								<h2>{{ event.get_field('timeframe') }}</h2>
+								<p>{{ event.get_field('description') }}</p>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
