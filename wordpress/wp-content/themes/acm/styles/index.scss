@@ -2,3 +2,12 @@
 @import './utils.scss';
 @import './base.scss';
 @import './normalize.scss';
+
+// Components
+@import './components/staff-member.scss';
+@import './components/event.scss';
+
+// Pages
+@import './pages/our-board-of-directors.scss';
+@import './pages/events.scss';
+@import './pages/exhibits.scss';

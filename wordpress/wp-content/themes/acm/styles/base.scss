@@ -25,11 +25,21 @@ body {
 
   #content {
     flex: 1 0 auto;
-    width: 944px;
+    width: 780px;
     padding: 0 40px 0 40px;
     max-width: 100%;
     margin: 0 auto;
+    color: #333;
+
+    img.size-full {
+      height: auto;
+      max-width: 100%;
+    }
   }
+}
+
+.aligncenter {
+  margin-right: auto;
 }
 
 .foreground {

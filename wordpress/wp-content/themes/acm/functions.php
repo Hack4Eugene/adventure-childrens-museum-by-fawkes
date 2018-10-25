@@ -1,5 +1,9 @@
 <?php
 
+// Add theme globals
+define('TEMPLATE_DIR', get_template_directory());
+define('TEMPLATE_URL', get_template_directory_uri());
+
 if ( ! class_exists( 'Timber' ) ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
@@ -29,6 +33,7 @@ class ACMSite extends TimberSite {
 	}
 
 	function register_post_types() {
+		require_once(TEMPLATE_DIR . '/inc/wp/custom-post-types.php');
 		//this is where you can register custom post types
 	}
 
@@ -42,11 +47,6 @@ class ACMSite extends TimberSite {
 		return $context;
 	}
 
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
@@ -54,6 +54,18 @@ class ACMSite extends TimberSite {
 		return $twig;
 	}
 
+}
+
+function console_log($v) {
+  $json = json_encode($v);
+	echo "<script defer>console.log($json);</script>";
+	return $v;
+}
+
+function get_post_templates($post) {
+	$templates = [ 'page-' . $post->post_name . '.twig', 'page.twig' ];
+	console_log($templates);
+	return $templates;
 }
 
 function theme_file($path) {

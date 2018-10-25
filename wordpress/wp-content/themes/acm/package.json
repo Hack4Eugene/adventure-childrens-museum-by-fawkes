@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.17.5",
+    "plop": "^2.1.0",
     "sass": "^1.5.1"
   }
 }
